@@ -1,5 +1,5 @@
 # protoaging
-This folder contains various codes to process experimental clinical data (electromyohgraphy, dynamometry, segmentations):
+This folder contains various codes to process experimental clinical data (torques, electromyography data, segmentations):
 - Muscle volumes
   - getMuscleVolsCSA.py
   > to extract the volume and maximal cross-sectional area of one or multiple STL files and save them in a CSV file
