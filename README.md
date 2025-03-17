@@ -1,12 +1,12 @@
 # protoaging
 This folder contains various codes to process experimental clinical data (torques, electromyography data, segmentations):
-- Muscle volumes
+- ImageDataElaboration
   - getMuscleVolsCSA.py
   > to extract the volume and maximal cross-sectional area of one or multiple STL files and save them in a CSV file
-- Dynamometry data
+- DynamometryDataElaboration
   - expdata_processing.m
   > to filter the torques recorded by a dynamometer and get the maximum value
-- Electromyography (EMG) data
+- EMGDataElaboration
   - boh.m
   > to band-pass filter, rectify and low-pass filter EMG traces
 
