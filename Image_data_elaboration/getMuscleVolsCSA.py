@@ -17,7 +17,7 @@
 	# 4. Identify cutting levels (from muscle origin to insertion, with an increment between slices = 5% of the muscle length [origin-to-insertion]; 18 slices in total)
 	# 5. Create cutting planes (perpendicular to line connecting origin and insertion)
 	# 6. Extract max CSA among all CSAs
-	# 8. Save values (volume and max CSAs) in pandas frame
+	# 8. Save values (volume and max CSAs) in pandas dataframe
     # 9. Export results to csv file
 
 #--------------------------------------------------------------------------------------------
@@ -44,8 +44,8 @@ def get_CSA_Vol(datapath, muscName, flag, inDir, outDir, subj, sbjDF): # main fu
     stlPDataPort = stlR.GetOutputPort() 
 
     # Get muscle origin and insertion points
-    # cutPtsAll = findCutLevels(np.array(orig),np.array(insert))   
-    cutPtsAll = findAllCutLevels(np.array(orig),np.array(insert))   
+    cutPtsAll = findAllCutLevels(np.array(orig),np.array(insert))  
+    # cutPtsAll = findCutLevels(np.array(orig),np.array(insert)) # alternative approach   
 
     
     sbjCSA = []
@@ -56,8 +56,8 @@ def get_CSA_Vol(datapath, muscName, flag, inDir, outDir, subj, sbjDF): # main fu
     # find max CSA
     maxCSA = np.max(sbjCSA)
 
-    musclePart =  stl.mesh.Mesh.from_file(datapath) # trimesh.load(A)
-    muscleVol = musclePart.get_mass_properties()[0] # partA.volume 
+    musclePart =  stl.mesh.Mesh.from_file(datapath) 
+    muscleVol = musclePart.get_mass_properties()[0] 
     mVol = float(muscleVol/1000)   
     # update pandas df with CSA values and muscle volume for current patient
     sbjDF = populateRedDict(sbjDF,muscName,mVol,maxCSA)
